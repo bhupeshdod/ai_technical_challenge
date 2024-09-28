@@ -1,0 +1,16 @@
+flask
+openai
+langchain_community
+langchain_openai
+pdfplumber
+pytesseract
+flask_caching
+faiss-cpu
+langchain
+bs4
+markdown
+scikit-learn
+flask-session
+flask_caching
+python-binary-memcached
+gunicorn
