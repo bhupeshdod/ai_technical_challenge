@@ -5,7 +5,7 @@ from langchain_community.docstore import InMemoryDocstore
 import faiss
 import os
 import pickle
-from config import FAISS_INDEX_PATH, DOCUMENTS_PATH, DOCSTORE_MAPPING_PATH
+from config import FAISS_INDEX_PATH, DOCUMENTS_PATH, DOCSTORE_MAPPING_PATH, STORAGE_PATH
 import logging
 from utils.utils import get_recognized_airlines
 
@@ -29,6 +29,9 @@ def setup_faiss_vector_store(documents):
     return vector_store
 
 def save_faiss_vector_store(vector_store):
+    if not os.path.exists(STORAGE_PATH):
+        os.makedirs(STORAGE_PATH) 
+    
     # Save FAISS index to disk
     faiss.write_index(vector_store.index, FAISS_INDEX_PATH)
     
