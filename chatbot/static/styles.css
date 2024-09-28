@@ -13,16 +13,13 @@ body {
     margin: 0;
     padding: 0;
     height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: block;
 }
 
 .container {
     display: flex;
     flex-direction: column;
-    max-width: 100%;
-    width: 100%;
+    width: 100vw;
     background-color: #ffffff;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
