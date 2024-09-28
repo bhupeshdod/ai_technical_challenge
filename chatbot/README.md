@@ -1,23 +1,28 @@
 ## Technical Challenge: LLM Airline Policy App
 
-# Airline Policy App
-
-This project is a Flask-based web application that leverages OpenAI's GPT-4o and FAISS for answering questions about airline policies. Users can submit queries, and the system retrieves the most relevant documents from stored policies and uses an LLM to answer them.
+As part of the Flight Center AI Center of Excellence technical challenge, I have developed an interactive chatbot application that enables users to ask questions about airline policies. Leveraging advanced language models and efficient vector search techniques, the application provides accurate and contextually relevant answers based on official policy documents of various airlines.
 
 ## Table of Contents
-- [Technologies Used](#technologies-used)
-- [Setup and Running Instructions](#setup-and-running-instructions)
-- [Design Choices](#design-choices)
-- [Challenges and Resolutions](#challenges-and-resolutions)
 
-## Technologies Used
+- [Features](#features)
+- [Technologies and Design Choices](#technologies-and-design-choices)
+- [Setup and Installation](#setup-and-installation)
+- [Running the Application](#running-the-application)
+- [Usage](#usage)
+- [Data Ingestion](#data-ingestion)
+- [Challenges Encountered and Solutions](#challenges-encountered-and-solutions)
+- [Conclusion](#conclusion)
 
-1. **Flask**: For building the web application.
-2. **OpenAI GPT-4**: Used for generating answers to user queries.
-3. **FAISS**: For storing and retrieving vector embeddings of the policy documents.
-4. **Memcached**: For session management.
-5. **Docker**: For containerizing the application and ensuring it runs consistently.
-6. **Docker Compose**: For orchestrating the application and its services.
+## Features
+
+- **Interactive Chat Interface**: A user-friendly web interface built with Flask, allowing users to ask natural language questions about airline policies.
+- **LLM Integration**: Utilizes OpenAI's GPT-4 model for understanding queries and generating human-like responses.
+- **Document Processing**: Extracts and preprocesses text from airline policy documents in PDF and Markdown formats, including OCR support for scanned PDFs.
+- **Vector Database**: Implements FAISS for efficient storage and retrieval of document embeddings, enabling quick similarity searches.
+- **Contextual Awareness**: Maintains conversation history to provide contextually relevant answers.
+- **Suggested Follow-up Questions**: Enhances user engagement by offering relevant follow-up questions based on the conversation.
+- **Session Management**: Uses Memcached for managing user sessions and preserving chat history across interactions.
+- **Dockerized Deployment**: Provides a Dockerfile and `docker-compose.yaml` for easy setup and deployment of the application.
 
 ## Setup and Running Instructions
 
