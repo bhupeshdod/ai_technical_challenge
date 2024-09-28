@@ -1,0 +1,25 @@
+version: '3.9'
+
+services:
+  app:
+    build: .
+    container_name: airline_chatbot_app
+    ports:
+      - "5000:5000"
+    env_file:
+      - .env
+    depends_on:
+      - memcached
+    volumes:
+      - .:/app
+
+  memcached:
+    image: memcached:alpine
+    container_name: memcached
+    ports:
+      - "11211:11211"
+    volumes:
+      - memcached_data:/data
+
+volumes:
+  memcached_data:
