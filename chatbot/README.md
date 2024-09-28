@@ -107,22 +107,22 @@ To update the policy documents or ingest new data, follow the steps below:
 - **Follow up Question**: Based on the previous user queries, the LLM will generate similar next 2-3 questions for user to select from the web interface.
 
 ### Vector Database and Search
-- **FAISS**: I employed FAISS for its speed and efficiency in handling large vector embeddings, making it ideal for real-time similarity searches required by the chatbot.
+- **FAISS**: I used Langchain's vectorstore FAISS for its speed and efficiency in handling large vector embeddings, along with Langchain's Runnable retrieval for relevant docuemnts extraction.
 
 ### Web Framework
-- **Flask**: Flask was chosen for its simplicity and flexibility, allowing for rapid development of the web interface and back-end services. It aligns well with the challenge’s scope and facilitates clean integration with the vector database and session management.
+- **Flask**: I used Flask for its simplicity and flexibility, allowing for rapid development of the web interface and back-end services.
 
 ### Session Management
 - **Memcached**: I integrated Memcached to manage session data, ensuring efficient storage and retrieval of user sessions and preserving chat history for a smooth, contextual user experience.
 
 ## Challenges Encountered and Solutions
 
-### 1. Extracting Text from Scanned PDFs
-- **Challenge**: I analyzed that the pdfs contain images and the markdown had tables, hyperlinks.
+### 1. Extracting Text from PDFs and Link's from markdown
+- **Challenge**: Pdfs documents contain images and the markdown contains tables, hyperlinks.
 - **Solution**: By integrated OCR through `pytesseract` to handle image-based PDFs, using BeautifulSoup to extarct the links and passing it through the prompt to include these in answers if required.
 
 ### 2. Session Persistence
-- **Challenge**: It is possible that certain questions don't have any airline specified or there could be questions that are followed up on certain response, the model was giving general information for that.
+- **Challenge**: Certain user queries don't have any airline specified or there could be questions that are followed up on certain response, the model was giving general information for that.
 - **Solution**: I extracted airines names extracted from the folders and stored them in metadata along with keywords, filenames. Memcached for session management, with the last 5 conversations passed along with relevant context and a good prompt to RAG chain.
 
 ### 3. Optimizing Vector Search
